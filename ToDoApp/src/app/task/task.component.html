@@ -1,0 +1,27 @@
+<h1>Task Component</h1>
+<p>tasks tab works!</p>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">TaskName</th>
+            <th scope="col">Priority</th>
+            <th scope="col">Type</th>
+            <th scope="col">Description</th>
+            <th scope="col">StartDate</th>
+            <th scope="col">EndDate</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let task of tasks">
+            <th scope="row">{{task.id}}</th>
+            <td>{{task.name}}</td>
+            <td>{{task.priority}}</td>
+            <td>{{task.type}}</td>
+            <td>{{task.description}}</td>
+            <td>{{task.startDate}}</td>
+            <td>{{task.endDate}}</td>
+        </tr>
+    </tbody>
+</table>
+<button type="button" class="btn btn-danger btn-sm" (click)="getTasks()">GetTasks</button>
