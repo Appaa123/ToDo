@@ -13,6 +13,14 @@ public class TasksController : ControllerBase
     public TasksController(TasksService tasksService) =>
         _tasksService = tasksService;
 
+    [HttpOptions]
+    public IActionResult Options()
+    {
+        Response.Headers.Add("Access-Control-Allow-Headers", "Content-Type, mode");
+        Response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+        return Ok();
+    }
+
     [HttpGet]
     public async Task<List<TaskItem>> Get() =>
         await _tasksService.GetAsync();
@@ -31,7 +39,8 @@ public class TasksController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<IActionResult> Post(TaskItem newtask)
+    [Consumes("multipart/form-data")]
+    public async Task<IActionResult> Post([FromForm] TaskItem newtask)
     {
         await _tasksService.CreateAsync(newtask);
 

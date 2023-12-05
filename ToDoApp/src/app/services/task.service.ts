@@ -10,24 +10,34 @@ import { retry, catchError } from 'rxjs/operators';
 })
 export class TaskService {
 
-  baseUrl = "http://localhost:5089/"
+  baseUrl = "http://localhost:5089/";
+
   constructor(private http: HttpClient) { }
 
     // Http Headers
     httpOptions = {
       headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-      }),
+        // 'Content-Type': 'multipart/form-data',
+        // 'Accept': '*/*',
+        // 'Access-Control-Allow-Methods': 'GET, POST, OPTIONS, PUT, PATCH, DELETE'
+      })
     };
 
     //Post
-    CreateTask(data: any): Observable<Task> {
-      return this.http.post<Task>(
+    CreateTask(data: any) {
+      let formData: FormData = new FormData();
+      formData.append("name", data.name);
+      formData.append("priority", data.priority);
+      formData.append("type", data.type);
+      formData.append("description", data.description);
+      formData.append("startDate", data.startDate);
+      formData.append("endDate", data.endDate);
+      this.http.post<Task>(
         this.baseUrl + 'api/tasks',
-        JSON.stringify(data),
-        this.httpOptions
-      )
-      .pipe(retry(1), catchError(this.errorHandl))
+        formData
+      ).subscribe(
+        error=> console.log(error)
+      );
     }
 
 

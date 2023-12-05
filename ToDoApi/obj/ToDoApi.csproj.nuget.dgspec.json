@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\My_First_App\\ToDoApi\\ToDoApi.csproj": {}
+    "E:\\My_First_App\\ToDoAPI\\ToDoApi.csproj": {}
   },
   "projects": {
-    "E:\\My_First_App\\ToDoApi\\ToDoApi.csproj": {
+    "E:\\My_First_App\\ToDoAPI\\ToDoApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\My_First_App\\ToDoApi\\ToDoApi.csproj",
+        "projectUniqueName": "E:\\My_First_App\\ToDoAPI\\ToDoApi.csproj",
         "projectName": "ToDoApi",
-        "projectPath": "E:\\My_First_App\\ToDoApi\\ToDoApi.csproj",
+        "projectPath": "E:\\My_First_App\\ToDoAPI\\ToDoApi.csproj",
         "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-        "outputPath": "E:\\My_First_App\\ToDoApi\\obj\\",
+        "outputPath": "E:\\My_First_App\\ToDoAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config"
