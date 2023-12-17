@@ -48,6 +48,11 @@ export class TaskService {
       .pipe(retry(1), catchError(this.errorHandl));
     }
 
+    deleteTasks(id: any) {
+      this.http.delete<Task>(this.baseUrl + 'api/tasks/' + id, id)
+      .subscribe(error => console.log(error));
+    }
+
      // Error handling
   errorHandl(error: { error: { message: string; }; status: any; message: any; }) {
     let errorMessage = '';

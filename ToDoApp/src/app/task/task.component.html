@@ -41,6 +41,8 @@
   </nav>
 <h1>Task Component</h1>
 <p>tasks tab works!</p>
+<h4>Total task count <h2>{{tasks.length}}</h2></h4>
+<!-- Table to display the details of the Tasks -->
 <table class="table table-bordered">
     <thead>
         <tr>
@@ -62,11 +64,16 @@
             <td>{{task.description}}</td>
             <td>{{task.startDate}}</td>
             <td>{{task.endDate}}</td>
+            <td>
+              <button type="button" class="btn btn-danger btn-sm" (click)="deleteTask(task.id)">Delete</button>
+            </td>
         </tr>
     </tbody>
 </table>
 
 <button type="button" class="btn btn-danger btn-sm" (click)="getTasks()">GetTasks</button>
+
+<!-- Form to get the details of the new task to be created -->
 
 <h1>Add Tasks</h1>
 

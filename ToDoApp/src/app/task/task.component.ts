@@ -24,14 +24,23 @@ export class TaskComponent {
        type: new FormControl("TaskType"),
        description: new FormControl("Task Description"),
        startDate: new FormControl("Task StartDate"),
-       endDate: new FormControl("Task EndDate")
+       endDate: new FormControl("Task EndDate"),
     });
+    this.getTasks();
  }
 
   getTasks(){
     return this.taskService.GetTasks().subscribe(x => {
       this.tasks = x;
     })
+  }
+
+  // you can use Aync and Promise here to avoid more timeout
+  deleteTask(id: any){
+    this.taskService.deleteTasks(id);
+    setTimeout(() => {
+      this.getTasks();
+    },1000);
   }
 
   createTasks(data: any){
