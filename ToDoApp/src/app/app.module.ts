@@ -10,6 +10,8 @@ import { TaskService } from './services/task.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { NgxColorsModule } from 'ngx-colors';
+import { NotifierModule } from 'angular-notifier';
+import { ToastrModule } from 'ngx-toastr';
 
 
 @NgModule({
@@ -26,7 +28,8 @@ import { NgxColorsModule } from 'ngx-colors';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     NgxChartsModule,
-    NgxColorsModule
+    NgxColorsModule,
+    ToastrModule.forRoot()
   ],
   providers: [TaskService],
   bootstrap: [AppComponent]

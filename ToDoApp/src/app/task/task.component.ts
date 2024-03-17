@@ -5,6 +5,8 @@ import { Task } from '../entities/task';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Color, ScaleType } from '@swimlane/ngx-charts';
 import { LegendPosition } from '@swimlane/ngx-charts';
+import { NotifierService } from 'angular-notifier';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-task',
@@ -37,7 +39,8 @@ export class TaskComponent {
 private unsubscribe$: Subject<void> = new Subject<void>();
 
   constructor(
-    public taskService: TaskService
+    public taskService: TaskService,
+    private toastr: ToastrService
   ){
     this.formData = new FormGroup({
       name: new FormControl("TaskName"),
@@ -71,6 +74,7 @@ private unsubscribe$: Subject<void> = new Subject<void>();
   }
 
   getChartData() {
+    this.toastr.success('Hello world!', 'Toastr fun!');
     this.taskService.GetTasks()
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe((x: any) => {
