@@ -16,6 +16,8 @@ public class TaskItem
 
     public string Type { get; set; } = null!;
 
+    public int PercentageCompleted { get; set; }
+
     public string Description { get; set; } = null!;
 
     public string StartDate { get; set; } = null!;

@@ -29,6 +29,7 @@ export class TaskService {
       formData.append("name", data.name);
       formData.append("priority", data.priority);
       formData.append("type", data.type);
+      formData.append("percentageCompleted", data.percentageCompleted);
       formData.append("description", data.description);
       formData.append("startDate", data.startDate);
       formData.append("endDate", data.endDate);
