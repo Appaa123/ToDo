@@ -74,7 +74,6 @@ private unsubscribe$: Subject<void> = new Subject<void>();
   }
 
   getChartData() {
-    this.toastr.success('Hello world!', 'Toastr fun!');
     this.taskService.GetTasks()
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe((x: any) => {
@@ -100,11 +99,15 @@ private unsubscribe$: Subject<void> = new Subject<void>();
       this.getTasks();
     },1000);
     this.getTasks();
+    this.toastr.success('Task deleted successully');
   }
 
   createTasks(data: any){
     this.taskService.CreateTask(data);
-    this.getTasks();
+    setTimeout(() => {
+      this.getTasks();
+    },1000);
+    this.toastr.success('Task created successully');
   }
 
 }
